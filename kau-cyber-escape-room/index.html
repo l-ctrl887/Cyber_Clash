@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAU Cyber Escape Room</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="grid-bg"></div>
+<main>
+<section id="welcome" class="screen active">
+ <h1>KAU Cyber Escape Room</h1><p class="sub">Your Account. Your Mission. 5 Minutes.</p>
+ <p>Four security traps stand between you and a stolen account. Solve them in order, beat the clock, and take it back.</p>
+ <button class="btn" id="btnStart">Start Mission</button>
+ <p class="disc">This is a cybersecurity awareness simulation.</p>
+</section>
+<section id="story" class="screen">
+ <h2>Incident report</h2>
+ <div class="term"><p>&gt; ALERT: student account <b>s.demo@kau.example</b> compromised</p><p>&gt; Attacker has a foothold. Four weak points found.</p><p>&gt; Fix each one to restore access.</p></div>
+ <p>Everything here is fictional. No real passwords, IDs or codes are ever requested. You have exactly <b>5 minutes</b>, and the clock starts when you press the button below.</p>
+ <button class="btn" id="btnBegin">Begin Mission</button>
+</section>
+<section id="game" class="screen">
+ <div class="hud"><div><small>Time</small><b id="hudTime">05:00</b></div><div><small>Stage</small><b id="hudStage">1/4</b></div><div><small>Score</small><b id="hudScore">0</b></div></div>
+ <div class="bar" role="progressbar" aria-label="Mission progress"><i id="bar"></i></div>
+ <p class="pot" id="pot" aria-live="polite"></p>
+ <h2 id="stTitle"></h2><div id="stBody"></div>
+ <div class="row"><button class="btn ghost" id="btnHint">Hint (−10 points)</button></div>
+ <p id="hintBox" class="note" hidden></p>
+ <div id="feedback" class="fb" role="status" hidden></div>
+ <button class="btn" id="btnNext" hidden>Next stage</button>
+</section>
+<section id="timesup" class="screen">
+ <h2 class="bad">Time's Up</h2><p>The attacker kept control. Here is what you missed:</p><div id="missed"></div>
+ <button class="btn" id="btnToResults1">See results</button>
+</section>
+<section id="recovered" class="screen">
+ <h2 class="good">Account Recovered</h2>
+ <div class="term"><p>&gt; Password rotated &#10003;</p><p>&gt; Malicious app removed &#10003;</p><p>&gt; Phishing reported &#10003;</p><p>&gt; Social engineering blocked &#10003;</p></div>
+ <p id="recTime"></p><button class="btn" id="btnToResults2">See results</button>
+</section>
+<section id="results" class="screen">
+ <h2>Mission results</h2><p class="big"><span id="resScore">0</span> / 400</p>
+ <div id="resStages"></div><h3>Your security tips</h3><ul id="resTips"></ul>
+ <button class="btn" id="btnAgain">Play Again</button>
+ <p class="disc">This is a cybersecurity awareness simulation.</p>
+</section>
+</main>
+<script src="js/scoring.js"></script><script src="js/timer.js"></script><script src="js/stages.js"></script><script src="js/main.js"></script>
+</body></html>
