@@ -10,13 +10,30 @@
 <section id="welcome" class="screen active">
  <h1>CYBER CLASH</h1><p class="sub">4 Threats. 5 Minutes. Can You Win?</p>
  <p class="cta">READY TO TAKE THE CHALLENGE?</p>
- <div class="term"><p>&gt; ALERT: a student account was flagged as compromised. Cause unknown.</p><p>&gt; Mission: investigate four security threats, in order, before the clock runs out.</p><p>&gt; Inspect the evidence, make the right call, raise ACCOUNT SECURITY to 100%.</p></div>
+ <div class="term"><p>&gt; ALERT: A cybersecurity incident has been detected. The cause is unknown.</p><p>&gt; MISSION: Complete four cybersecurity challenges before time runs out.</p><p>&gt; Your task: Analyze the situations, make smart security decisions, and raise your SECURITY SCORE to 100%.</p></div>
  <h3>Challenge mode</h3>
- <div class="modes"><button class="mode sel" data-m="normal" aria-pressed="true"><b>NORMAL</b><span>5:00 timer. Inspect and hints enabled. Fundamentals: phishing, passwords, app permissions, fake calls.</span></button>
- <button class="mode" data-m="expert" aria-pressed="false"><b>EXPERT</b><span>5:00 timer. Hints enabled, no Inspect. New topics: ransomware, public Wi-Fi, data breaches, incident response.</span></button></div>
- <p class="dim">Same four topics and same maximum score (400) in both modes. The clock starts the moment you press the button and never resets between stages. Each hint costs 10 points in either mode.</p>
- <div class="row"><button class="btn" id="btnStart">START THE CHALLENGE</button><button class="btn ghost" id="btnBoard">LEADERBOARD</button></div>
- <p class="disc">This is a cybersecurity awareness simulation. Nothing real is requested or stored.</p>
+<div class="modes">
+  <button class="mode sel" data-m="normal" aria-pressed="true">
+    <b>NORMAL</b>
+    <span>5:00 timer. Explore four cybersecurity fundamentals: phishing, password security, app permissions, and fake calls.</span>
+  </button>
+  <button class="mode" data-m="expert" aria-pressed="false">
+    <b>EXPERT</b>
+    <span>5:00 timer. Take on four advanced challenges: ransomware, public Wi-Fi security, data breaches, and incident response.</span>
+  </button>
+</div>
+<p class="dim">
+  Both modes feature four challenges and a maximum score of 400 points.
+  The clock starts when you begin and continues across all four stages.
+  Each hint costs 10 points.
+</p>
+<div class="row">
+  <button class="btn" id="btnStart">START THE CHALLENGE</button>
+  <button class="btn ghost" id="btnBoard">LEADERBOARD</button>
+</div>
+<p class="disc">
+  This is a cybersecurity awareness simulation. No real credentials or personal information are requested or stored.
+</p>
 </section>
 <section id="game" class="screen">
  <div class="hud"><div><small>Time</small><b id="hudTime">05:00</b></div><div><small>Stage</small><b id="hudStage">1/4</b></div><div><small>Score</small><b id="hudScore">0</b></div></div>
