@@ -1,14 +1,4 @@
-:root {
-  --bg: #050b18;
-  --panel: #0a1426;
-  --cyan: #22e5ff;
-  --blue: #3b82ff;
-  --text: #d7e6f5;
-  --dim: #8fa6c0;
-  --red: #ff3b5c;
-  --green: #3dffa5;
-  --mono: Consolas, "SF Mono", Menlo, monospace;
-}
+:root{--bg:#050b18;--panel:#0a1426;--cyan:#22e5ff;--blue:#3b82ff;--text:#d7e6f5;--dim:#8fa6c0;--red:#ff6b81;--green:#3dffa5;--mono:Consolas,"SF Mono",Menlo,monospace}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
 .grid-bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 0,#0d2a4d55,transparent 60%),linear-gradient(#22e5ff10 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,#22e5ff10 1px,transparent 1px) 0 0/40px 40px}
