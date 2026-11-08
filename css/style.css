@@ -77,7 +77,7 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
   position: relative;
   color: #00d9ff;
   text-decoration: underline;
-  cursor: pointer;
+  cursor: help;
 }
 
 .linkbtn:hover::after {
