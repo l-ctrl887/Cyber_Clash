@@ -1,4 +1,0 @@
-const Sound={on:true,ctx:null,
- init(){if(!this.ctx){const A=window.AudioContext||window.webkitAudioContext;if(A)try{this.ctx=new A()}catch(e){}}if(this.ctx&&this.ctx.state==="suspended")this.ctx.resume()},
- tone(f,at,d,type,v){const c=this.ctx,o=c.createOscillator(),g=c.createGain(),t=c.currentTime+at;o.type=type||"sine";o.frequency.value=f;g.gain.setValueAtTime(v||.05,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+d)},
- play(n){if(!this.on||!this.ctx)return;try{({start:[[440,0,.1],[660,.1,.16]],correct:[[660,0,.1],[880,.09,.16]],wrong:[[180,0,.22,"sawtooth",.04]],warn:[[740,0,.1,"square",.03],[740,.18,.1,"square",.03]],crit:[[880,0,.08,"square",.04],[880,.12,.08,"square",.04],[880,.24,.08,"square",.04]],stage:[[523,0,.1],[659,.1,.1],[784,.2,.2]],victory:[[523,0,.12],[659,.12,.12],[784,.24,.12],[1047,.36,.3]],lose:[[330,0,.2],[247,.2,.3]]})[n].forEach(a=>this.tone(a[0],a[1],a[2],a[3],a[4]))}catch(e){}}};
