@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CYBER CLASH</title>
+<meta name="description" content="CYBER CLASH: 4 Threats. 3 Minutes. Can You Win? A cybersecurity awareness simulation.">
+<link rel="stylesheet" href="css/style.css"></head>
+<body><div class="grid-bg"></div>
+<button id="sndBtn" class="snd" aria-pressed="true" aria-label="Sound on">🔊</button>
+<div id="toast" class="toast" role="alert" hidden></div>
+<main>
+<section id="welcome" class="screen active">
+ <h1>CYBER CLASH</h1><p class="sub">4 Threats. 3 Minutes. Can You Win?</p>
+ <p class="cta">READY TO TAKE THE CHALLENGE?</p>
+ <div class="term"><p>&gt; ALERT: a student account was flagged as compromised. Cause unknown.</p><p>&gt; Mission: investigate four security threats, in order, before the 3:00 clock runs out.</p><p>&gt; Inspect the evidence, make the right call, raise ACCOUNT SECURITY to 100%.</p></div>
+ <h3>Challenge mode</h3>
+ <div class="modes"><button class="mode sel" data-m="normal" aria-pressed="true"><b>NORMAL</b><span>3:00 timer. Hints enabled (−10 points each). Standard evidence.</span></button>
+ <button class="mode" data-m="expert" aria-pressed="false"><b>EXPERT</b><span>3:00 timer. No hints, no strength previews. Trickier evidence and scenarios.</span></button></div>
+ <p class="dim">Same four topics and same maximum score (400) in both modes. The clock starts the moment you press the button.</p>
+ <div class="row"><button class="btn" id="btnStart">START THE CHALLENGE</button><button class="btn ghost" id="btnBoard">LEADERBOARD</button></div>
+ <p class="disc">This is a cybersecurity awareness simulation. Nothing real is requested or stored.</p>
+</section>
+<section id="game" class="screen">
+ <div class="hud"><div><small>Time</small><b id="hudTime">03:00</b></div><div><small>Stage</small><b id="hudStage">1/4</b></div><div><small>Score</small><b id="hudScore">0</b></div></div>
+ <p class="sec" id="secLabel" aria-live="polite">ACCOUNT SECURITY: 0%</p>
+ <div class="bar" role="progressbar" aria-label="Account security"><i id="bar"></i></div>
+ <p class="pot" id="pot" aria-live="polite"></p>
+ <h2 id="stTitle"></h2><p class="note" id="stIntro" hidden></p><div id="stBody"></div>
+ <div class="row"><button class="btn ghost" id="btnHint">Hint (−10 points)</button></div>
+ <p id="hintBox" class="note" hidden></p>
+ <div id="feedback" class="fb" role="status" hidden></div>
+ <button class="btn" id="btnNext" hidden>Next stage</button>
+</section>
+<section id="timesup" class="screen">
+ <h2 class="bad">TIME'S UP</h2><p>The investigation ran out of time. Here are the correct practices for what you missed:</p><div id="missed"></div>
+ <button class="btn" id="btnToResults">See results</button>
+</section>
+<section id="results" class="screen">
+ <h2>CYBER CLASH — MISSION RESULTS</h2>
+ <div id="banner"></div>
+ <div id="rankBox" class="rankbox"></div>
+ <p class="big"><span id="resScore">0</span> / 400</p>
+ <div id="stats" class="stats"></div>
+ <div id="resStages"></div><h3 id="tipHead">Lessons learned</h3><ul id="resTips"></ul>
+ <h3>Save to leaderboard</h3>
+ <div class="row"><input id="nick" class="nick" maxlength="12" placeholder="Nickname (no real name)" aria-label="Nickname"><button class="btn ghost" id="btnSave">Save result</button></div>
+ <p id="saveMsg" class="dim">Saved only in this browser. Please do not enter personal information.</p>
+ <div class="row"><button class="btn" id="btnAgain">PLAY AGAIN</button><button class="btn ghost" id="btnCard">DOWNLOAD RESULT CARD</button><button class="btn ghost" id="btnBoard2">LEADERBOARD</button></div>
+ <p class="disc">This is a cybersecurity awareness simulation.</p>
+</section>
+<section id="board" class="screen">
+ <h2>Leaderboard: Top 10</h2><p class="note">Local to this browser only. This is not a live or university-wide leaderboard.</p>
+ <div class="tw"><table><thead><tr><th>#</th><th>Nickname</th><th>Rank</th><th>Score</th><th>Mode</th><th>Time</th></tr></thead><tbody id="boardBody"></tbody></table></div>
+ <button class="btn" id="btnBack">Back</button>
+</section>
+</main>
+<script src="js/scoring.js"></script><script src="js/timer.js"></script><script src="js/audio.js"></script><script src="js/leaderboard.js"></script><script src="js/card.js"></script><script src="js/stages.js"></script><script src="js/main.js"></script>
+</body></html>
