@@ -39,8 +39,6 @@ function results(won){const d=summary(won),L=cur().map(x=>x.title.replace(/^Stag
  $("#stats").innerHTML=[["Mode",d.mode],["Completed stages",d.completed+" / 4"],["Time taken",d.taken],["Time remaining",d.time],["Hints used",d.hints],["Account security",d.pct+"%"]].map(x=>`<div><small>${x[0]}</small><b>${x[1]}</b></div>`).join("");
  $("#resStages").innerHTML=L.map((n,i)=>{const x=Score.s[i];return`<div class="stg"><span>${i+1}. ${n}</span><span>${x.done?"✔ Completed "+x.pts+"/100":"✖ Incomplete"}</span></div>`}).join("");
  const tips=won?cur().map(s=>s.tip):cur().filter((s,i)=>!Score.s[i].done).map(s=>s.tip);
- $("#tipHead").textContent=won?"Lessons learned":"Correct security practices for the remaining stages";
- $("#resTips").innerHTML=tips.map(t=>`<li>${t}</li>`).join("");
  Sound.play(won?"victory":"lose");show("results")}
 function showBoard(from){state.from=from;const rows=Board.top();
  $("#boardBody").innerHTML=rows.length?rows.map((e,i)=>`<tr><td>${i+1}</td><td>${e.nick.replace(/[<>&"]/g,"")}</td><td>${Score.rank(e.score).icon} ${Score.rank(e.score).name}</td><td>${e.score}</td><td>${e.mode}</td><td>${e.won?mm(e.elapsed):"Time up"}</td></tr>`).join(""):`<tr><td colspan="6">No results saved yet.</td></tr>`;
