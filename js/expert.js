@@ -5,7 +5,6 @@ const EXPERT=[
  hint:"Think containment and escalation: limit the spread, bring in the experts, and don't tamper with the machine yourself.",
 lesson:"Ransomware locks your files and may spread across connected devices. Disconnect the infected device, report it to IT, and never attempt to fix it or pay the ransom yourself.",
  tip:"If a device shows a ransom message, disconnect it from the network, report it to IT/security straight away, and don't delete, 'fix' or pay anything yourself.",
- update:"The device is isolated and reported. Now let's look at how people connect to networks.",
  render(el,res){
   const A=[
    ["net","Disconnect the computer from Wi-Fi and the network cable",1],
@@ -31,7 +30,6 @@ lesson:"Ransomware locks your files and may spread across connected devices. Dis
  hint:"A similar name proves nothing. Who can actually confirm which network is official?",
 lesson:"Only connect to networks confirmed by the venue. Avoid sensitive logins on public Wi-Fi and never trust a network just because its name looks familiar.",
  tip:"Join only the Wi-Fi the venue confirms is official, avoid sensitive logins on public networks, and don't auto-join networks.",
- update:"Safe connection confirmed. But a university platform may have leaked data.",
  render(el,res){
   const N=[
    ["A","Cafe_Free_WiFi","Open network. No password required."],
@@ -53,7 +51,6 @@ lesson:"Only connect to networks confirmed by the venue. Avoid sensitive logins 
  hint:"Ask what an attacker could do with each item, especially when people reuse the same password in many places.",
 lesson:"Leaked personal data can be used for phishing, scams, and account attacks. Change affected and reused passwords, enable two-step verification, and watch for suspicious messages.",
  tip:"After a data breach, change the affected password (and any reused ones), enable two-step verification, and watch for suspicious messages.",
- update:"The leak is understood. One final alert needs a coordinated response.",
 
 render(el,res){
   const D=[
@@ -106,7 +103,6 @@ render(el,res){
  hint:"Understand what is happening before acting, stop it spreading before fixing it, and finish by learning from it.",
 lesson:"Handle security incidents in order: identify, contain, remove, recover, and review. Following these steps helps prevent the threat from spreading or returning.",
  tip:"In an incident: identify and assess, contain, remove the cause, recover, then review and improve. Each step depends on the one before it.",
- update:"",
  render(el,res){
   const C=[
    "Identify and assess the incident",
