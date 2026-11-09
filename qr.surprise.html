@@ -1,0 +1,60 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CYBER CLASH — QR Challenge</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:grid;place-items:center;
+ padding:20px;background:#050b18;color:#d7e6f5;
+ font-family:Arial,sans-serif;text-align:center
+}
+.card{
+ width:min(100%,520px);padding:35px 25px;
+ background:#0a1426;border:1px solid #22e5ff;
+ border-radius:16px;box-shadow:0 0 35px #22e5ff18
+}
+.icon{font-size:55px;margin-bottom:15px}
+h1{color:#22e5ff;font-size:32px;letter-spacing:3px}
+h2{color:#3dffa5;font-size:22px}
+p{line-height:1.7;color:#d7e6f5}
+.warning{
+ margin:22px 0;padding:15px;border:1px dashed #ff6b81;
+ border-radius:8px;color:#ff6b81;overflow-wrap:anywhere;
+ font-family:monospace;font-size:13px
+}
+.tip{color:#8fa6c0;font-size:14px}
+button{
+ width:100%;padding:14px;margin-top:18px;
+ background:#22e5ff;color:#050b18;border:0;border-radius:7px;
+ font-size:15px;font-weight:bold;cursor:pointer
+}
+button:hover{filter:brightness(1.1)}
+</style>
+</head>
+<body>
+<main class="card">
+ <div class="icon">🕵️</div>
+ <h1>GOTCHA!</h1>
+ <h2>You scanned it without checking the URL!</h2>
+ <p>
+  You just experienced how easy it is to scan a QR code
+  without knowing where it leads.
+ </p>
+ <div class="warning">
+  A QR code can hide a malicious destination.
+ </div>
+ <p>
+  Always check the URL before opening a link.
+  If something looks unfamiliar or suspicious, don't proceed.
+ </p>
+ <p class="tip">THINK BEFORE YOU SCAN.</p>
+ <button onclick="window.location.href='./index.html'">
+  OK, LET'S PLAY
+ </button>
+</main>
+</body>
+</html>
