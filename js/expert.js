@@ -54,7 +54,8 @@ const EXPERT=[
  lesson:"A data breach exposes personal information, and even basic details can be misused. Names, emails and phone numbers make phishing and scam calls look convincing. Leaked passwords (even hashed ones) can be cracked, and tried on other accounts where the password is reused. Academic records are private. After a breach: change the password here and anywhere it was reused, turn on two-step verification, and watch for suspicious messages.",
  tip:"After a data breach, change the affected password (and any reused ones), enable two-step verification, and watch for suspicious messages.",
  update:"The leak is understood. One final alert needs a coordinated response.",
- render(el,res){
+
+render(el,res){
   const D=[
    ["names","Student names",1],
    ["emails","University email addresses",1],
@@ -63,15 +64,43 @@ const EXPERT=[
    ["records","Academic records",1],
    ["events","Public campus event schedule",0]
   ];
-  el.innerHTML=`<div class="panel"><b>📄 INCIDENT REPORT #INC-0427 (fictional)</b><p>A misconfigured server on a learning platform exposed the records below. No real data is shown.</p></div><p class="dim">Question 1 of 1</p><p>Which exposed items are sensitive personal data? Select all that apply.</p><div class="opts">${D.map(d=>`<button class="opt" data-k="${d[0]}" aria-pressed="false">${d[1]}</button>`).join("")}</div><button class="btn" id="go">Check answers</button>`;
-  const sel=pickMulti(el);
-  $("#go",el).onclick=()=>{
-   const miss=D.filter(d=>d[2]&&!sel.has(d[0])).length;
-   const fp=D.filter(d=>!d[2]&&sel.has(d[0])).length;
-   if(fp)return res(false,"One item you selected is public information anyway. Sensitive data is personal and not meant to be shared openly.");
-   if(miss)return res(false,`You missed ${miss} sensitive item(s). Remember that even basic details like names and phone numbers can be misused.`);
-   res(true)
-  }
+
+  const R=[
+   ["a","Ignore it. Hashed passwords can't be cracked.",0,"Hashes can often be cracked, especially for weak passwords. Don't ignore a leak."],
+   ["b","Change your password here and anywhere you reused it, turn on two-step verification, and watch for suspicious messages.",1],
+   ["c","Reply to any “verify your account” message to check whether it's real.",0,"Replying to unexpected messages is exactly what phishers want. Use official channels instead."],
+   ["d","Delete your university account so nothing can be stolen.",0,"Deleting the account does not remove data already leaked, and you may lose access to services."]
+  ];
+
+  const s1=()=>{
+   el.innerHTML=`<div class="panel"><b>📄 INCIDENT REPORT #INC-0427 (fictional)</b><p>A misconfigured server on a learning platform exposed the records below. No real data is shown.</p></div><p class="dim">Question 1 of 2</p><p>Which exposed items are sensitive personal data? Select all that apply.</p><div class="opts">${D.map(d=>`<button class="opt" data-k="${d[0]}" aria-pressed="false">${d[1]}</button>`).join("")}</div><button class="btn" id="go">Check answers</button>`;
+
+   const sel=pickMulti(el);
+
+   $("#go",el).onclick=()=>{
+    const miss=D.filter(d=>d[2]&&!sel.has(d[0])).length;
+    const fp=D.filter(d=>!d[2]&&sel.has(d[0])).length;
+
+    if(fp)return res(false,"One item you selected is public information anyway. Sensitive data is personal and not meant to be shared openly.");
+    if(miss)return res(false,`You missed ${miss} sensitive item(s). Remember that even basic details like names and phone numbers can be misused.`);
+
+    s2();
+   };
+  };
+
+  const s2=()=>{
+   el.innerHTML=`<div class="line ok">✔ Correct: five of these items are sensitive, and the public event schedule is not.</div><p class="dim">Question 2 of 2</p><p>What is the best immediate response after discovering a data breach?</p><div class="opts">${shuffle(R.slice()).map(r=>`<button class="opt" data-v="${r[0]}">${r[1]}</button>`).join("")}</div><button class="btn" id="go" disabled>Confirm</button>`;
+
+   const get=pickOne(el,".opt","#go");
+
+   $("#go",el).onclick=()=>{
+    const r=R.find(x=>x[0]===get());
+    r[2]?res(true):res(false,r[3]);
+   };
+  };
+
+  s1();
+}
  }},
 {title:"Stage 4: Critical Alert (Final Challenge)",
  intro:"Critical alert: unusual activity detected in a university system. Put the response in the correct order.",
