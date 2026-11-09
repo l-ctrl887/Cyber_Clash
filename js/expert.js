@@ -3,7 +3,7 @@ const EXPERT=[
 {title:"Stage 1: The Infected Device (Ransomware)",
  intro:"A computer is behaving strangely. Files won't open and a message has appeared on the screen. Select every safe response.",
  hint:"Think containment and escalation: limit the spread, bring in the experts, and don't tamper with the machine yourself.",
- lesson:"Ransomware locks your files and demands payment. The safe response is to disconnect the device from the network to stop it spreading, report it to the IT/security team immediately, and avoid opening other suspicious files or links. Do not delete files, run 'fixes' or pay: that can destroy evidence, add malware and does not guarantee recovery.",
+lesson:"Ransomware locks your files and may spread across connected devices. Disconnect the infected device, report it to IT, and never attempt to fix it or pay the ransom yourself.",
  tip:"If a device shows a ransom message, disconnect it from the network, report it to IT/security straight away, and don't delete, 'fix' or pay anything yourself.",
  update:"The device is isolated and reported. Now let's look at how people connect to networks.",
  render(el,res){
@@ -29,7 +29,7 @@ const EXPERT=[
 {title:"Stage 2: The Public Wi-Fi Trap",
  intro:"You're at a café and need the internet. Choose the safest network to connect to.",
  hint:"A similar name proves nothing. Who can actually confirm which network is official?",
- lesson:"Public Wi-Fi is shared with strangers. Open networks do not protect what you send, and attackers can set up lookalike networks with names close to the real one. Join only the network the venue confirms is official, prefer https sites, avoid sensitive logins on public networks, and don't let your phone auto-join networks.",
+lesson:"Only connect to networks confirmed by the venue. Avoid sensitive logins on public Wi-Fi and never trust a network just because its name looks familiar.",
  tip:"Join only the Wi-Fi the venue confirms is official, avoid sensitive logins on public networks, and don't auto-join networks.",
  update:"Safe connection confirmed. But a university platform may have leaked data.",
  render(el,res){
@@ -51,7 +51,7 @@ const EXPERT=[
 {title:"Stage 3: The Data Leak (Data Breach & Privacy)",
  intro:"A fictional incident report says a university platform may have exposed data. Identify which information is sensitive.",
  hint:"Ask what an attacker could do with each item, especially when people reuse the same password in many places.",
- lesson:"A data breach exposes personal information, and even basic details can be misused. Names, emails and phone numbers make phishing and scam calls look convincing. Leaked passwords (even hashed ones) can be cracked, and tried on other accounts where the password is reused. Academic records are private. After a breach: change the password here and anywhere it was reused, turn on two-step verification, and watch for suspicious messages.",
+lesson:"Leaked personal data can be used for phishing, scams, and account attacks. Change affected and reused passwords, enable two-step verification, and watch for suspicious messages.",
  tip:"After a data breach, change the affected password (and any reused ones), enable two-step verification, and watch for suspicious messages.",
  update:"The leak is understood. One final alert needs a coordinated response.",
 
@@ -104,7 +104,7 @@ render(el,res){
 {title:"Stage 4: Critical Alert (Final Challenge)",
  intro:"Critical alert: unusual activity detected in a university system. Put the response in the correct order.",
  hint:"Understand what is happening before acting, stop it spreading before fixing it, and finish by learning from it.",
- lesson:"Incident response follows an order: identify and assess what is happening, contain the threat so it can't spread, remove the cause, recover the affected systems, then review the incident and improve security. Skipping ahead, for example recovering before the cause is removed, lets the problem return.",
+lesson:"Handle security incidents in order: identify, contain, remove, recover, and review. Following these steps helps prevent the threat from spreading or returning.",
  tip:"In an incident: identify and assess, contain, remove the cause, recover, then review and improve. Each step depends on the one before it.",
  update:"",
  render(el,res){
