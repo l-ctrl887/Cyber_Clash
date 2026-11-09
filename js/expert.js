@@ -3,7 +3,7 @@ const EXPERT=[
 {title:"Stage 1: The Infected Device (Ransomware)",
  intro:"A computer is behaving strangely. Files won't open and a message has appeared on the screen. Select every safe response.",
  hint:"Think containment and escalation: limit the spread, bring in the experts, and don't tamper with the machine yourself.",
-lesson:"Ransomware locks your files and may spread across connected devices. Disconnect the infected device, report it to IT, and never attempt to fix it or pay the ransom yourself.",
+lesson:"Disconnect the infected device, report it to IT, and never attempt to fix it or pay the ransom yourself.",
  tip:"If a device shows a ransom message, disconnect it from the network, report it to IT/security straight away, and don't delete, 'fix' or pay anything yourself.",
  render(el,res){
   const A=[
@@ -28,7 +28,7 @@ lesson:"Ransomware locks your files and may spread across connected devices. Dis
 {title:"Stage 2: The Public Wi-Fi Trap",
  intro:"You're at a café and need the internet. Choose the safest network to connect to.",
  hint:"A similar name proves nothing. Who can actually confirm which network is official?",
-lesson:"Only connect to networks confirmed by the venue. Avoid sensitive logins on public Wi-Fi and never trust a network just because its name looks familiar.",
+lesson:"Only connect to networks confirmed by the venue. Avoid sensitive logins on public Wi-Fi.",
  tip:"Join only the Wi-Fi the venue confirms is official, avoid sensitive logins on public networks, and don't auto-join networks.",
  render(el,res){
   const N=[
@@ -49,7 +49,7 @@ lesson:"Only connect to networks confirmed by the venue. Avoid sensitive logins 
 {title:"Stage 3: The Data Leak (Data Breach & Privacy)",
  intro:"A fictional incident report says a university platform may have exposed data. Identify which information is sensitive.",
  hint:"Ask what an attacker could do with each item, especially when people reuse the same password in many places.",
-lesson:"Leaked personal data can be used for phishing, scams, and account attacks. Change affected and reused passwords, enable two-step verification, and watch for suspicious messages.",
+lesson:"Change affected passwords, enable two-step verification, and monitor your accounts.",
  tip:"After a data breach, change the affected password (and any reused ones), enable two-step verification, and watch for suspicious messages.",
 
 render(el,res){
@@ -101,7 +101,7 @@ render(el,res){
 {title:"Stage 4: Critical Alert (Final Challenge)",
  intro:"Critical alert: unusual activity detected in a university system. Put the response in the correct order.",
  hint:"Understand what is happening before acting, stop it spreading before fixing it, and finish by learning from it.",
-lesson:"Handle security incidents in order: identify, contain, remove, recover, and review. Following these steps helps prevent the threat from spreading or returning.",
+lesson:"Handle security incidents in order: identify, contain, remove, recover, and review.",
  tip:"In an incident: identify and assess, contain, remove the cause, recover, then review and improve. Each step depends on the one before it.",
  render(el,res){
   const C=[
