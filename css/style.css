@@ -205,6 +205,13 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
     font-size: 10px;
   }
 
+  .fb .lesson {
+  margin: 10px 0 0;
+  line-height: 1.6;
+  font-size: 13px;
+  color: #d7e6f5;
+}
+
   .project-credits .supervisor-name {
     font-size: 11px;
   }
