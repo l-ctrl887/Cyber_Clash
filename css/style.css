@@ -108,73 +108,93 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
   left: 0;
 }
 
-
 .project-credits {
-  max-width: 380px;
+  max-width: 540px;
   margin: 25px auto 15px;
-  padding: 12px 15px;
+  padding: 20px 22px 13px;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  align-items: center;
+  gap: 18px;
   text-align: center;
-  background: #081323;
+  background: linear-gradient(135deg, #081323, #0b1b30);
   border: 1px solid #16445c;
-  border-radius: 8px;
-  box-shadow: 0 0 18px #00d9ff12;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00d9ff12;
 }
 
-.credit-label {
-  color: #22e5ff;
-  font-size: 13px;
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+.credit-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
 }
 
 .credit-heading {
-  color: #8fa6c0;
-  font-size: 13px;
-  letter-spacing: 2px;
-  margin-bottom: 6px;
-}
-
-.team-names {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px;
+  color: #22e5ff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 3px;
 }
 
 .team-member {
-  color: #22e5ff;
+  color: #d7e6f5;
   background: #0d2034;
   border: 1px solid #17617a;
   border-radius: 5px;
-  padding: 6px 10px;
+  padding: 7px 10px;
   font-size: 12px;
   font-weight: bold;
-  text-shadow: 0 0 10px #22e5ff55;
+  width: 100%;
+  text-shadow: 0 0 8px #22e5ff44;
 }
 
-.credit-divider {
-  display: flex;
-  justify-content: center;
-  margin: 9px 0;
-}
-
-.credit-divider span {
-  width: 40px;
-  height: 2px;
+.credit-separator {
+  width: 1px;
+  height: 65px;
   background: #22e5ff;
-  box-shadow: 0 0 10px #22e5ff;
+  box-shadow: 0 0 9px #22e5ff88;
 }
 
 .supervisor-name {
   color: #37f5a1;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
-  margin: 5px 0 8px;
+  line-height: 1.5;
+  text-shadow: 0 0 10px #37f5a155;
 }
 
 .university-name {
+  grid-column: 1 / -1;
   color: #8fa6c0;
-  font-size: 12px;
+  font-size: 10px;
   letter-spacing: 2px;
-  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid #16445c;
+}
+
+@media (max-width: 450px) {
+  .project-credits {
+    gap: 10px;
+    padding: 16px 10px 11px;
+  }
+
+  .credit-heading {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .team-member {
+    font-size: 10px;
+    padding: 7px 5px;
+  }
+
+  .supervisor-name {
+    font-size: 11px;
+  }
+
+  .university-name {
+    font-size: 8px;
+  }
 }
