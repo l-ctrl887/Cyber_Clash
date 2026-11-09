@@ -109,28 +109,48 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
 }
 
 .project-credits {
-  max-width: 540px;
-  margin: 25px auto 15px;
-  padding: 20px 22px 13px;
+  width: 100%;
+  max-width: 650px;
+  margin: 30px auto 20px;
+  padding: 17px 25px 12px;
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
   align-items: center;
-  gap: 18px;
-  text-align: center;
+  column-gap: 25px;
+  row-gap: 12px;
   background: linear-gradient(135deg, #081323, #0b1b30);
   border: 1px solid #16445c;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 0 20px #00d9ff12;
 }
 
-.credit-column {
+.project-credits .credit-column:first-child {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.project-credits .credit-separator {
+  grid-column: 2;
+  grid-row: 1;
+  width: 1px;
+  height: 65px;
+  background: #22e5ff;
+  box-shadow: 0 0 10px #22e5ff88;
+}
+
+.project-credits .credit-column:nth-of-type(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.project-credits .credit-column {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
 }
 
-.credit-heading {
+.project-credits .credit-heading {
   color: #22e5ff;
   font-size: 12px;
   font-weight: bold;
@@ -138,35 +158,31 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
   margin-bottom: 3px;
 }
 
-.team-member {
+.project-credits .team-member {
+  width: 100%;
+  max-width: 190px;
+  padding: 7px 8px;
   color: #d7e6f5;
   background: #0d2034;
   border: 1px solid #17617a;
   border-radius: 5px;
-  padding: 7px 10px;
   font-size: 12px;
   font-weight: bold;
-  width: 100%;
-  text-shadow: 0 0 8px #22e5ff44;
+  text-align: center;
 }
 
-.credit-separator {
-  width: 1px;
-  height: 65px;
-  background: #22e5ff;
-  box-shadow: 0 0 9px #22e5ff88;
-}
-
-.supervisor-name {
+.project-credits .supervisor-name {
   color: #37f5a1;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
-  line-height: 1.5;
+  text-align: center;
   text-shadow: 0 0 10px #37f5a155;
 }
 
-.university-name {
+.project-credits .university-name {
   grid-column: 1 / -1;
+  grid-row: 2;
+  text-align: center;
   color: #8fa6c0;
   font-size: 10px;
   letter-spacing: 2px;
@@ -174,27 +190,22 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
   border-top: 1px solid #16445c;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .project-credits {
-    gap: 10px;
-    padding: 16px 10px 11px;
+    column-gap: 12px;
+    padding: 15px 10px 12px;
   }
 
-  .credit-heading {
+  .project-credits .credit-heading {
     font-size: 10px;
     letter-spacing: 1px;
   }
 
-  .team-member {
+  .project-credits .team-member {
     font-size: 10px;
-    padding: 7px 5px;
   }
 
-  .supervisor-name {
+  .project-credits .supervisor-name {
     font-size: 11px;
-  }
-
-  .university-name {
-    font-size: 8px;
   }
 }
