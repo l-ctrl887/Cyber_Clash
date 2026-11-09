@@ -109,61 +109,104 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
 }
 
 
+
 .project-credits {
-  max-width: 430px;
-  margin: 35px auto 20px;
-  padding: 22px 20px;
+  position: relative;
+  max-width: 480px;
+  margin: 38px auto 22px;
+  padding: 25px 20px;
   text-align: center;
-  border: 1px solid #1d3d55;
-  border-radius: 12px;
-  background: linear-gradient(145deg, #0a1426, #081323);
-  box-shadow: 0 0 25px #00d9ff0b;
+  background: linear-gradient(135deg, #071323, #0b1b30);
+  border: 1px solid #16445c;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow:
+    0 0 15px #00d9ff12,
+    inset 0 0 25px #00d9ff08;
+}
+
+.project-credits::before,
+.project-credits::after {
+  content: "";
+  position: absolute;
+  width: 65px;
+  height: 2px;
+  background: #22e5ff;
+  box-shadow: 0 0 12px #22e5ff;
+}
+
+.project-credits::before {
+  top: 0;
+  left: 0;
+}
+
+.project-credits::after {
+  bottom: 0;
+  right: 0;
 }
 
 .credit-label {
   color: #22e5ff;
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-size: 9px;
+  letter-spacing: 3px;
   margin-bottom: 22px;
+  text-shadow: 0 0 10px #22e5ff88;
 }
 
 .credit-heading {
   color: #8fa6c0;
   font-size: 10px;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
 }
 
 .team-names {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px 20px;
+  gap: 12px;
 }
 
 .team-names span {
   color: #d7e6f5;
   font-size: 14px;
   font-weight: bold;
+  letter-spacing: 1px;
+  padding: 9px 13px;
+  border: 1px solid #16445c;
+  border-radius: 5px;
+  background: #00d9ff09;
+  text-shadow: 0 0 10px #22e5ff66;
+  transition: .25s;
+}
+
+.team-names span:hover {
+  color: #22e5ff;
+  border-color: #22e5ff;
+  box-shadow: 0 0 14px #22e5ff33;
 }
 
 .credit-divider {
-  width: 45px;
+  width: 55px;
   height: 2px;
   background: #22e5ff;
-  margin: 20px auto;
-  opacity: .7;
+  box-shadow: 0 0 10px #22e5ff;
+  margin: 23px auto;
 }
 
 .supervisor-name {
   color: #37f5a1;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
-  margin-bottom: 17px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 12px #37f5a166;
+  margin-bottom: 18px;
 }
 
 .university-name {
   color: #22e5ff;
   font-size: 9px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  opacity: .8;
 }
+
