@@ -1,60 +1,269 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CYBER CLASH — QR Challenge</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBER CLASH | Security Alert</title>
+
 <style>
 *{box-sizing:border-box}
+
 body{
- margin:0;min-height:100vh;display:grid;place-items:center;
- padding:20px;background:#050b18;color:#d7e6f5;
- font-family:Arial,sans-serif;text-align:center
+ margin:0;
+ min-height:100vh;
+ background:#050b18;
+ color:#d7e6f5;
+ font-family:Consolas,monospace;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ overflow-x:hidden;
 }
-.card{
- width:min(100%,520px);padding:35px 25px;
- background:#0a1426;border:1px solid #22e5ff;
- border-radius:16px;box-shadow:0 0 35px #22e5ff18
+
+.grid{
+ position:fixed;
+ inset:0;
+ background-image:
+ linear-gradient(#12304733 1px,transparent 1px),
+ linear-gradient(90deg,#12304733 1px,transparent 1px);
+ background-size:35px 35px;
+ pointer-events:none;
 }
-.icon{font-size:55px;margin-bottom:15px}
-h1{color:#22e5ff;font-size:32px;letter-spacing:3px}
-h2{color:#3dffa5;font-size:22px}
-p{line-height:1.7;color:#d7e6f5}
+
+.container{
+ position:relative;
+ width:100%;
+ max-width:650px;
+ text-align:center;
+}
+
+.logo{
+ color:#22e5ff;
+ letter-spacing:5px;
+ font-size:14px;
+ margin-bottom:35px;
+}
+
+.alert{
+ color:#ff526b;
+ font-size:clamp(25px,6vw,38px);
+ font-weight:bold;
+ text-shadow:0 0 15px #ff334477;
+ margin-bottom:15px;
+}
+
+.subtitle{
+ color:#8fa6c0;
+ font-size:13px;
+ margin-bottom:25px;
+}
+
+.terminal{
+ background:#081323;
+ border:1px solid #1d3d55;
+ border-radius:10px;
+ padding:20px;
+ text-align:left;
+ min-height:190px;
+ box-shadow:0 0 30px #00d9ff12;
+}
+
+.terminal-header{
+ color:#22e5ff;
+ font-size:12px;
+ border-bottom:1px solid #1d3d55;
+ padding-bottom:12px;
+ margin-bottom:15px;
+}
+
+#code{
+ color:#37f5a1;
+ font-size:13px;
+ line-height:2;
+ white-space:pre-wrap;
+ overflow-wrap:anywhere;
+}
+
+.cursor{
+ display:inline-block;
+ width:8px;
+ height:15px;
+ background:#22e5ff;
+ animation:blink .7s infinite;
+ vertical-align:middle;
+}
+
+@keyframes blink{
+ 50%{opacity:0}
+}
+
+.progress{
+ height:5px;
+ background:#17283b;
+ border-radius:10px;
+ margin-top:22px;
+ overflow:hidden;
+}
+
+.progress i{
+ display:block;
+ height:100%;
+ width:0;
+ background:#ff526b;
+ transition:width .2s linear;
+}
+
+#reveal{
+ display:none;
+ animation:appear .7s ease;
+}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+.gotcha{
+ color:#37f5a1;
+ font-size:clamp(35px,8vw,55px);
+ font-weight:bold;
+ margin:30px 0 15px;
+ text-shadow:0 0 20px #37f5a155;
+}
+
+.message{
+ color:#d7e6f5;
+ font-family:Arial,sans-serif;
+ line-height:1.8;
+ font-size:15px;
+}
+
 .warning{
- margin:22px 0;padding:15px;border:1px dashed #ff6b81;
- border-radius:8px;color:#ff6b81;overflow-wrap:anywhere;
- font-family:monospace;font-size:13px
+ color:#22e5ff;
+ font-weight:bold;
+ letter-spacing:2px;
+ margin:25px 0;
+ font-size:14px;
 }
-.tip{color:#8fa6c0;font-size:14px}
+
 button{
- width:100%;padding:14px;margin-top:18px;
- background:#22e5ff;color:#050b18;border:0;border-radius:7px;
- font-size:15px;font-weight:bold;cursor:pointer
+ border:0;
+ border-radius:7px;
+ padding:15px 25px;
+ background:#22e5ff;
+ color:#06111e;
+ font-weight:bold;
+ font-family:inherit;
+ font-size:14px;
+ cursor:pointer;
+ transition:.2s;
 }
-button:hover{filter:brightness(1.1)}
+
+button:hover{
+ background:#37f5a1;
+ transform:translateY(-2px);
+ box-shadow:0 0 20px #22e5ff55;
+}
+
+.footer{
+ color:#536c85;
+ font-size:11px;
+ margin-top:30px;
+}
+
 </style>
 </head>
+
 <body>
-<main class="card">
- <div class="icon">🕵️</div>
- <h1>GOTCHA!</h1>
- <h2>You scanned it without checking the URL!</h2>
- <p>
-  You just experienced how easy it is to scan a QR code
-  without knowing where it leads.
- </p>
- <div class="warning">
-  A QR code can hide a malicious destination.
+<div class="grid"></div>
+
+<main class="container">
+
+<div class="logo">CYBER CLASH // SECURITY SYSTEM</div>
+
+<section id="attack">
+
+<div class="alert">⚠ SYSTEM BREACH DETECTED</div>
+<div class="subtitle">UNAUTHORIZED ACCESS IN PROGRESS...</div>
+
+<div class="terminal">
+ <div class="terminal-header">
+  SYSTEM TERMINAL — LIVE ACTIVITY
  </div>
- <p>
-  Always check the URL before opening a link.
-  If something looks unfamiliar or suspicious, don't proceed.
- </p>
- <p class="tip">THINK BEFORE YOU SCAN.</p>
- <button onclick="window.location.href='./index.html'">
-  OK, LET'S PLAY
- </button>
+ <div id="code"></div><span class="cursor"></span>
+</div>
+
+<div class="progress"><i id="bar"></i></div>
+
+<p class="subtitle" id="status">Initializing security override...</p>
+
+</section>
+
+<section id="reveal">
+
+<div class="gotcha">GOTCHA! 😈</div>
+
+<div class="message">
+ <p><b>You just scanned a QR code without checking where it leads!</b></p>
+
+ <p>QR codes can hide malicious destinations.
+ Always check the URL before opening it.</p>
+</div>
+
+<div class="warning">THINK BEFORE YOU SCAN.</div>
+
+<button onclick="location.href='https://l-ctrl887.github.io/Cyber_Clash/'">
+ OK, LET'S PLAY →
+</button>
+
+</section>
+
+<div class="footer">
+ THIS WAS A SIMULATION — NO DEVICE WAS ACCESSED.
+</div>
+
 </main>
+
+<script>
+const lines = [
+ "> Connecting to target...",
+ "> Bypassing security protocols...",
+ "> Scanning network...",
+ "> Accessing system files...",
+ "> Injecting malicious payload...",
+ "> Encryption sequence initiated...",
+ "> SYSTEM COMPROMISED!"
+];
+
+const code = document.getElementById("code");
+const bar = document.getElementById("bar");
+const status = document.getElementById("status");
+
+let line = 0;
+
+function typeLine(){
+ if(line >= lines.length){
+  status.textContent = "SECURITY ALERT: PROCESS COMPLETE";
+  setTimeout(showReveal,1200);
+  return;
+ }
+
+ code.textContent += lines[line] + "\n";
+ line++;
+
+ bar.style.width = (line / lines.length * 100) + "%";
+
+ setTimeout(typeLine,650);
+}
+
+function showReveal(){
+ document.getElementById("attack").style.display="none";
+ document.getElementById("reveal").style.display="block";
+}
+
+setTimeout(typeLine,700);
+</script>
+
 </body>
 </html>
