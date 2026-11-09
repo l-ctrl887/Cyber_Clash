@@ -63,34 +63,64 @@ const STAGES=[
   $("#go",el).onclick=()=>{const bad=P.filter((p,i)=>ch[i]!==p.ok);
    if(bad.length)return res(false,`${bad.length} setting(s) need another look. `+bad.map(p=>`${p.n}: ${p.r}`).join(" "));
    res(true)}}},
-{title:"Stage 4: The Fake Call (Final Challenge)",
- intro:"Incoming call detected. Someone claims they can restore your account.",
- hint:"Real IT staff never need your one-time code. Urgency and threats are warning signs. Hang up and use an official channel.",
- lesson:"This is social engineering: attackers manipulate people instead of hacking systems. They claim to see a problem, ask for an OTP to 'verify' you, then threaten you to rush your decision. A one-time password is for you alone, and no real IT team will ever ask for it. Hang up and contact KAU through its official channel.",
- tip:"Never share OTPs with anyone. If someone claims to be IT support, hang up and contact the university through its official channel.",
- update:"",
+
+{title:"Stage 4: The Oversharing Trap (Final Challenge)",
+ intro:"A student is about to publish this social media post. Review what is visible, flag exposed information, and decide whether it is safe to share.",
+ hint:"Look beyond the caption. Student IDs, class schedules, and real-time locations can reveal personal information or daily routines. A university name or a general caption is not sensitive by itself.",
+ lesson:"Oversharing happens when a post reveals more personal information than intended. A student ID can expose identifying details, a class schedule can reveal daily routines, and a real-time location can show where someone is right now. Before posting, hide personal information, avoid sharing your live location, and check the background of your photos. Share only what is necessary.",
+ tip:"Check photos and captions before posting. Hide student IDs, schedules, and real-time locations. Think about what someone could learn from the details you share.",
+ update:"The post revealed personal information that could be used to target the student. Your investigation is complete.",
  render(el,res){
-  const R=[
-   {say:"“Hello, this is KAU IT Support. We've detected unusual activity on your account.”",o:[
-    ["Oh no! Tell me what to do, I'll follow your instructions.",0,"Following instructions from an unverified caller hands them control of the conversation."],
-    ["Give my student ID so they know who I am.",0,"Never hand personal details to a caller you haven't verified. They could be collecting information."],
-    ["I can't confirm who you are, so I'll check through KAU's official channels.",1,"Good call. A claim of 'unusual activity' is a classic way to scare people, so verify independently."]]},
-   {say:"“To verify it's really you, please read me the 6-digit code we just sent to your phone.”",o:[
-    ["Read the whole code out. It sounds official.",0,"You gave an attacker the key to your account. A one-time code is only for you."],
-    ["Read just the first three digits.",0,"Even part of a code helps an attacker. Never share any of it."],
-    ["No. I never share OTPs with anyone.",1,"Correct. Real IT staff never ask for your OTP."]]},
-   {say:"“If you don't give me the code right now, your account will be suspended today!”",o:[
-    ["Give in. I can't lose my account.",0,"Threats are a pressure tactic to stop you thinking. Giving in once is all an attacker needs."],
-    ["Stay on the line and argue until they back down.",0,"Staying on the line lets them keep pressuring you, and caller ID can be faked. End the call."],
-    ["End the call and contact KAU IT support through the official website or number.",1,"Correct. Hanging up and using an official channel is the safe move."]]}];
-  let r=0;const log=[];
-  el.innerHTML=`<div class="call"><div class="ring">📞</div><p><b>Incoming call</b><br>Caller ID: “KAU IT Support” <button class="mini" id="cid">Inspect</button></p><div class="linkbar" id="evlog">Tap Inspect to examine the caller ID.</div><button class="btn" id="ans">Answer call</button><div id="talk"></div></div>`;
-  $("#cid",el).onclick=()=>{$("#evlog",el).textContent="Caller ID can be faked. A name on the screen proves nothing."};
-  const draw=()=>{const cur=R[r],opts=shuffle(cur.o.slice());
-   $("#talk",el).innerHTML=`<div class="pressure"><span>Caller pressure</span><b><i style="width:${Math.min(100,(r+1)*34)}%"></i></b></div>${log.join("")}<p class="dim">Decision ${r+1} of 3</p><div class="line">${cur.say}</div><div class="opts">${opts.map((o,i)=>`<button class="opt" data-i="${i}">${o[0]}</button>`).join("")}</div>`;
-   $$("[data-i]",el).forEach(b=>b.onclick=()=>{const o=opts[+b.dataset.i];
-    if(!o[1])return res(false,o[2]);
-    log.push(`<div class="line">${cur.say}</div><div class="line me">You: ${o[0]}</div><div class="line ok">✔ ${o[2]}</div>`);
-    if(r<2){r++;draw()}else{$("#talk",el).innerHTML=log.join("")+`<div class="line me">☎ Call ended.</div>`;res(true)}})};
-  $("#ans",el).onclick=()=>{$("#ans",el).remove();draw()}}}
+  const D={
+   rows:[
+    ["caption","Caption","Great day at KAU! Ready for another semester 🎓"],
+    ["id","Student ID","University ID: 22104567"],
+    ["schedule","Class schedule","Sunday: 8:00 AM – Building 12, Room 204"],
+    ["location","Location tag","📍 Currently at KAU – College of Computing"],
+    ["extra","Extra detail","Excited for the new semester!"]
+   ],
+   need:["id","schedule","location"],
+   i:{
+    caption:"A general caption about university life does not reveal sensitive personal information.",
+    id:"A visible student ID is personal identifying information. Someone could use it to target the student or attempt account-related attacks.",
+    schedule:"The post reveals a specific class time and location. This can expose the student's daily routine and make it easier to track them.",
+    location:"The location is shared in real time. This reveals where the student is right now and can create a physical safety risk.",
+    extra:"A general statement about being excited for the semester is not sensitive information."
+   }
+  };
+  const on=new Set();
+  let v=-1;
+  el.innerHTML=`<div class="mail">${D.rows.map(r=>`<div class="ev"><span><b>${r[1]}:</b> ${r[2]}</span><span class="evb"><button class="mini" data-i="${r[0]}">Inspect</button><button class="mini" data-f="${r[0]}" aria-pressed="false">Flag</button></span></div>`).join("")}</div>
+  <div class="linkbar" id="evlog">Tap Inspect to examine each part of the post. Flag only information that should not be shared publicly.</div>
+  <div class="opts"><button class="opt" data-v="0">The post is safe to publish</button><button class="opt" data-v="1">The post exposes private information</button></div>
+  <button class="btn" id="go" disabled>Submit verdict</button>`;
+  $$("[data-i]",el).forEach(b=>b.onclick=()=>{
+   $("#evlog",el).textContent=D.i[b.dataset.i]
+  });
+  $$("[data-f]",el).forEach(b=>b.onclick=()=>{
+   const k=b.dataset.f;
+   on.has(k)?on.delete(k):on.add(k);
+   b.classList.toggle("on",on.has(k));
+   b.setAttribute("aria-pressed",on.has(k));
+   b.textContent=on.has(k)?"Flagged":"Flag";
+  });
+  $$("[data-v]",el).forEach(b=>b.onclick=()=>{
+   v=+b.dataset.v;
+   $$("[data-v]",el).forEach(x=>x.classList.toggle("sel",x===b));
+   $("#go",el).disabled=false;
+  });
+  $("#go",el).onclick=()=>{
+   const miss=D.need.filter(k=>!on.has(k));
+   const fp=[...on].filter(k=>!D.need.includes(k));
+   if(miss.length&&fp.length)
+    return res(false,`You missed ${miss.length} exposed detail(s) and flagged ${fp.length} harmless detail(s). Focus on information that could identify, locate, or track the student.`);
+   if(miss.length)
+    return res(false,`You missed ${miss.length} piece(s) of sensitive information. Check the student ID, class schedule, and live location.`);
+   if(fp.length)
+    return res(false,`${fp.length} of the items you flagged are harmless details. A general caption or university name is not automatically private information.`);
+   if(v!==1)
+    return res(false,"You identified the exposed information, but your verdict does not match your findings. This post should not be published as it is.");
+   res(true);
+  };
+ }}
 ];
