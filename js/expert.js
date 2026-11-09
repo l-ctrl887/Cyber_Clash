@@ -100,7 +100,6 @@ render(el,res){
   };
 
   s1();
-}
  }},
 {title:"Stage 4: Critical Alert (Final Challenge)",
  intro:"Critical alert: unusual activity detected in a university system. Put the response in the correct order.",
