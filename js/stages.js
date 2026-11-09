@@ -9,7 +9,7 @@ const STAGES=[
 {title:"Stage 1: The Phishing Trap",
  intro:"New email flagged in the compromised account's inbox. Inspect the evidence, flag only what is genuinely suspicious, then give your verdict.",
  hint:"Check where the sender's domain and the link really point, and look for pressure. Routine details such as greetings and footers are often normal.",
-lesson:"Phishing uses fake links, lookalike domains, and urgent messages to trick you. Always check the sender and the real link address, and report suspicious emails instead of clicking.",
+lesson:"Check the sender and link before clicking. Report suspicious emails.",
  tip:"Check the sender's domain, the real link address and any pressure before clicking. Not every odd detail is a red flag. When in doubt, report the email and go to the official site yourself.",
  render(el,res){
   const D={rows:[["sender","From (address and domain)","noreply@kau-edu-services.com"],["subject","Subject","Action required: password expiry notice"],["greet","Greeting","Dear Student,"],["body","Message","Verify within 2 hours or your account will be permanently deleted."],["link","Link","Verify My Account"],["foot","Footer","© King Abdulaziz University. Automated message, please do not reply."]],need:["sender","body","link"],
@@ -30,7 +30,7 @@ lesson:"Phishing uses fake links, lookalike domains, and urgent messages to tric
 {title:"Stage 2: The Weak Password",
  intro:"Reviewing the account's password security.",
  hint:"Look for length, a mix of characters and nothing guessable. Skip names, places, years and common patterns.",
-lesson:"Use long, random, and unique passwords without personal information. Never reuse passwords, and use a password manager to keep them secure.",
+lesson:"Use long, unique passwords and enable two-step verification.",
  tip:"Use long, random, unique passwords (12+ characters) with no personal info, and store them in a password manager.",
  render(el,res){
   const o=[["Mohammed2003","This uses a name and a year. Attackers try personal details first."],["kau12345","This is short and uses a common sequence. It appears in every attacker's wordlist."],["R7#mP9!vQ2@x"],["Jeddah@KAU1!","A place and a university name with a predictable ending are easy to guess."]];
@@ -44,7 +44,7 @@ lesson:"Use long, random, and unique passwords without personal information. Nev
 {title:"Stage 3: The Suspicious App",
  intro:"A university events app on the account's device is asking for permissions. Decide what it really needs.",
  hint:"Match each permission to what an events app actually does. Some permissions can be limited to when the app is open.",
-lesson:"Follow the Principle of Least Privilege: allow only the permissions an app actually needs. Deny unnecessary access and limit location sharing to 'While Using' whenever possible.",
+lesson:"Allow only the permissions an app actually needs.",
  tip:"Match permissions to what the app really does. Allow what its features need (limited to 'While Using' when possible) and deny the rest.",
  render(el,res){
   const P=[{n:"Camera",ic:"📷",o:["Allow","Deny"],ok:"Deny",i:"Lets the app take photos or video.",r:"The events app has no photo or scanning feature."},
@@ -64,8 +64,7 @@ lesson:"Follow the Principle of Least Privilege: allow only the permissions an a
 {title:"Stage 4: The Oversharing Trap (Final Challenge)",
  intro:"A student is about to publish this social media post. Review what is visible, flag exposed information, and decide whether it is safe to share.",
  hint:"Look beyond the caption. Student IDs, class schedules, and real-time locations can reveal personal information or daily routines. A university name or a general caption is not sensitive by itself.",
-lesson:"Think before posting: student IDs, class schedules, and live locations can expose your privacy and safety. Share only what is necessary and avoid revealing personal details.",
- tip:"Check photos and captions before posting. Hide student IDs, schedules, and real-time locations. Think about what someone could learn from the details you share.",
+ lesson:"Protect your privacy: never share IDs, schedules, or live locations online.", tip:"Check photos and captions before posting. Hide student IDs, schedules, and real-time locations. Think about what someone could learn from the details you share.",
  render(el,res){
   const D={
    rows:[
