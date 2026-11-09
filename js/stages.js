@@ -9,7 +9,7 @@ const STAGES=[
 {title:"Stage 1: The Phishing Trap",
  intro:"New email flagged in the compromised account's inbox. Inspect the evidence, flag only what is genuinely suspicious, then give your verdict.",
  hint:"Check where the sender's domain and the link really point, and look for pressure. Routine details such as greetings and footers are often normal.",
- lesson:"Phishing relies on pressure and lookalike domains. Check the sender's domain, the real link address and any threats or tight deadlines. A general greeting or an automated footer is normal on real emails, so focus on the signs that matter. Never log in through an email link: open the official site yourself, or report the email to IT.",
+lesson:"Phishing uses fake links, lookalike domains, and urgent messages to trick you. Always check the sender and the real link address, and report suspicious emails instead of clicking.",
  tip:"Check the sender's domain, the real link address and any pressure before clicking. Not every odd detail is a red flag. When in doubt, report the email and go to the official site yourself.",
  update:"The suspicious email was only the beginning. Let's investigate the account's security.",
  render(el,res){
@@ -31,7 +31,7 @@ const STAGES=[
 {title:"Stage 2: The Weak Password",
  intro:"Reviewing the account's password security.",
  hint:"Look for length, a mix of characters and nothing guessable. Skip names, places, years and common patterns.",
- lesson:"A strong password is long, complex, unpredictable and unique. R7#mP9!vQ2@x is 12 random characters with no words or personal details, so it is hard to guess and not reused anywhere. Names, places like Jeddah, years and simple sequences are the first things attackers try. Use a password manager and never reuse a password.",
+lesson:"Use long, random, and unique passwords without personal information. Never reuse passwords, and use a password manager to keep them secure.",
  tip:"Use long, random, unique passwords (12+ characters) with no personal info, and store them in a password manager.",
  update:"The password was not strong enough. But there may be other risks.",
  render(el,res){
@@ -46,7 +46,7 @@ const STAGES=[
 {title:"Stage 3: The Suspicious App",
  intro:"A university events app on the account's device is asking for permissions. Decide what it really needs.",
  hint:"Match each permission to what an events app actually does. Some permissions can be limited to when the app is open.",
- lesson:"The Principle of Least Privilege: give an app only the access its features need. Notifications: allowed, because event reminders are the app's purpose. Location (While Using): allowed, because nearby events only need your position while the app is open, and 'Always' would track you in the background. Contacts, Microphone and Camera: denied, because browsing events never needs your contacts, sound or photos.",
+lesson:"Follow the Principle of Least Privilege: allow only the permissions an app actually needs. Deny unnecessary access and limit location sharing to 'While Using' whenever possible.",
  tip:"Match permissions to what the app really does. Allow what its features need (limited to 'While Using' when possible) and deny the rest.",
  update:"An application had access to more information than it needed. One final threat remains.",
  render(el,res){
@@ -67,7 +67,7 @@ const STAGES=[
 {title:"Stage 4: The Oversharing Trap (Final Challenge)",
  intro:"A student is about to publish this social media post. Review what is visible, flag exposed information, and decide whether it is safe to share.",
  hint:"Look beyond the caption. Student IDs, class schedules, and real-time locations can reveal personal information or daily routines. A university name or a general caption is not sensitive by itself.",
- lesson:"Oversharing happens when a post reveals more personal information than intended. A student ID can expose identifying details, a class schedule can reveal daily routines, and a real-time location can show where someone is right now. Before posting, hide personal information, avoid sharing your live location, and check the background of your photos. Share only what is necessary.",
+lesson:"Think before posting: student IDs, class schedules, and live locations can expose your privacy and safety. Share only what is necessary and avoid revealing personal details.",
  tip:"Check photos and captions before posting. Hide student IDs, schedules, and real-time locations. Think about what someone could learn from the details you share.",
  update:"The post revealed personal information that could be used to target the student. Your investigation is complete.",
  render(el,res){
