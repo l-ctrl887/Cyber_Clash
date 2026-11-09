@@ -16,8 +16,8 @@ function loadStage(){const st=cur()[state.idx];state.advanced=false;
 function onResult(ok,msg){if(state.phase!=="playing"||state.advanced)return;const i=state.idx,fb=$("#feedback");fb.hidden=false;
  if(!ok){Score.wrong(i);fb.className="fb no";fb.innerHTML=`<b>Not quite.</b> ${msg} Try again. (−15 points)`;shake(fb);shake($("#stBody"));Sound.play("wrong");hud();reveal(fb);return}
  state.advanced=true;Score.finish(i);if(i===3){state.left=Math.round(Timer.remaining()/1000);Timer.stop()}hud();
- const u=cur()[i].update;
- fb.className="fb ok";fb.innerHTML=`<b>✔ Correct! +${Score.s[i].pts} points.</b> ${cur()[i].lesson}`+(u?`<p class="upd"><b>Investigation update:</b> ${u}</p>`:"");
+fb.className="fb ok";
+fb.innerHTML=`<b>✔ Correct! +${Score.s[i].pts} points.</b> ${cur()[i].lesson}`;
  Sound.play("correct");setTimeout(()=>Sound.play("stage"),220);
  $$("#stBody button").forEach(b=>b.disabled=true);$("#btnHint").hidden=true;
  const n=$("#btnNext");n.hidden=false;n.textContent=i===3?"Complete investigation":"Next stage";reveal(fb)}
