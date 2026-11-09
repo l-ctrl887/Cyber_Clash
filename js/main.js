@@ -17,8 +17,11 @@ function onResult(ok,msg){if(state.phase!=="playing"||state.advanced)return;cons
  if(!ok){Score.wrong(i);fb.className="fb no";fb.innerHTML=`<b>Not quite.</b> ${msg} Try again. (−15 points)`;shake(fb);shake($("#stBody"));Sound.play("wrong");hud();reveal(fb);return}
  state.advanced=true;Score.finish(i);if(i===3){state.left=Math.round(Timer.remaining()/1000);Timer.stop()}hud();
 fb.className="fb ok";
-fb.innerHTML=`<b>✔ Correct! +${Score.s[i].pts} points.</b> ${cur()[i].lesson}`;
- Sound.play("correct");setTimeout(()=>Sound.play("stage"),220);
+fb.innerHTML=`
+  <b>✔ Correct! +${Score.s[i].pts} points.</b>
+  <p class="lesson">${cur()[i].lesson}</p>
+`; 
+                          Sound.play("correct");setTimeout(()=>Sound.play("stage"),220);
  $$("#stBody button").forEach(b=>b.disabled=true);$("#btnHint").hidden=true;
  const n=$("#btnNext");n.hidden=false;n.textContent=i===3?"Complete investigation":"Next stage";reveal(fb)}
 function onTick(r){const t=$("#hudTime"),s=Math.ceil(r/1000);t.textContent=Timer.fmt(r);
