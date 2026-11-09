@@ -108,44 +108,45 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
   left: 0;
 }
 
+
 .project-credits {
-  max-width: 400px;
-  margin: 35px auto 20px;
-  padding: 18px 16px;
+  max-width: 380px;
+  margin: 25px auto 15px;
+  padding: 12px 15px;
   text-align: center;
   background: #081323;
   border: 1px solid #16445c;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #00d9ff12;
+  border-radius: 8px;
+  box-shadow: 0 0 18px #00d9ff12;
 }
 
 .credit-label {
   color: #22e5ff;
   font-size: 13px;
-  letter-spacing: 3px;
-  margin-bottom: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
 }
 
 .credit-heading {
   color: #8fa6c0;
   font-size: 13px;
   letter-spacing: 2px;
-  margin-bottom: 9px;
+  margin-bottom: 6px;
 }
 
 .team-names {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .team-member {
   color: #22e5ff;
   background: #0d2034;
   border: 1px solid #17617a;
-  border-radius: 6px;
-  padding: 8px 11px;
+  border-radius: 5px;
+  padding: 6px 10px;
   font-size: 12px;
   font-weight: bold;
   text-shadow: 0 0 10px #22e5ff55;
@@ -154,11 +155,11 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
 .credit-divider {
   display: flex;
   justify-content: center;
-  margin: 15px 0;
+  margin: 9px 0;
 }
 
 .credit-divider span {
-  width: 45px;
+  width: 40px;
   height: 2px;
   background: #22e5ff;
   box-shadow: 0 0 10px #22e5ff;
@@ -168,11 +169,12 @@ h1{font-size:clamp(2.6rem,12vw,4.2rem);letter-spacing:.08em;background:linear-gr
   color: #37f5a1;
   font-size: 14px;
   font-weight: bold;
-  margin: 8px 0 12px;
+  margin: 5px 0 8px;
 }
 
 .university-name {
   color: #8fa6c0;
   font-size: 12px;
   letter-spacing: 2px;
+  margin: 0;
 }
